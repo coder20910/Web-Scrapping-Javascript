@@ -15,7 +15,7 @@ function cb(err, response, html){
 
         let player_name = "";
         let hsrun = 0;
-
+        let obj = [];
         for(let i = 0; element.length; i++){
             let teamBatsmen = cheerioSelector(element[i]).find('tr');
             for(let j = 0; j < teamBatsmen.length; j++){
@@ -27,14 +27,15 @@ function cb(err, response, html){
                     if(hsrun <= Number(run)){
                         hsrun = run;
                         player_name = batsman_j;
+                        obj.push(run);
                     }
                     
                 }
                 
             }
-            console.log("```````````````````````````````````");
-            console.log("Highest scorer player name :",player_name,"scored ",hsrun,"run");   
         }
-        
+        console.log(obj);
+            console.log("```````````````````````````````````");
+            console.log("Highest scorer player name :",player_name,"scored ",hsrun,"run");  
     }
 }
